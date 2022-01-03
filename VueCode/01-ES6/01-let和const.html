@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1、作用域不同
+        {
+            var a = 10
+        }
+
+        console.log(a)  // 输出10
+
+        {
+            let b = 10
+        }
+
+        console.log(b)  // 报错
+
+        var aa = []
+        for (var i = 0; i < 10; i++) {
+            aa[i] = function () {
+                console.log(i)
+            }
+        }
+        aa[6]()  // 输出10
+
+
+        var aaa = []
+        for (let i = 0; i < 10; i++) {
+            aaa[i] = function () {
+                console.log(i)
+            }
+        }
+        aaa[6]()  // 输出6
+
+
+        // 2、不可重复声明
+        {
+            var c = 10;
+            var c = 12;
+        }
+
+        console.log(c)  // 输出12
+
+        {
+            let d = 10;
+            let d = 12;
+        }
+
+        console.log(d)  // 报错
+
+        // 不存在变量提升
+        console.log(e)
+        var e = 111
+
+        const person = {
+            "name": "cdc"
+        }
+
+    </script>
+</body>
+
+</html>

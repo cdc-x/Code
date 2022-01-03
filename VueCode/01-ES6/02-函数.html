@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 形参允许设置默认值
+        // ES5 写法
+        // function add(a, b){
+        //     a = a || 10;
+        //     b = b || 20;
+        //     return a + b;
+        // }
+
+        // let ret = add()
+        // console.log(ret)
+
+        // // ES6 写法
+        // function add(a=10, b=20){
+        //     return a + b
+        // }
+
+        // // 2.默认的表达式也可以是一个函数
+        // let getVal = function(val){
+        //     return val + 5
+        // }
+
+        // let fn = function(a, b=getVal(5)){
+        //     return a + b
+        // }
+
+        // console.log(fn(20))
+
+        // 3.剩余参数
+        let book = {
+            "title": "富婆聊天技巧~",
+            "author": "cdc",
+            "desc": "嘿嘿嘿~~"
+        }
+
+        // ES5 写法
+        // let pick = function(obj){
+        //     // console.log(arguments)
+
+        //     let ret = {}
+
+        //     // 从索引为1开始获取属性名
+        //     for(let i = 1; i < arguments.length; i ++){
+        //         ret[arguments[i]] = obj[arguments[i]]
+        //     }
+
+        //     return ret
+        // }
+
+        // ES6 写法
+        // let pick = function (obj, ...keys) {
+        //     // console.log(keys)
+
+        //     let ret = {}
+
+        //     // 从索引为1开始获取属性名
+        //     for (let i = 0; i < keys.length; i++) {
+        //         ret[keys[i]] = obj[keys[i]]
+        //     }
+
+        //     return ret
+        // }
+
+        // let booData = pick(book, "author", "desc")
+        // console.log(booData)
+
+        let fn = function (a, b, c) {
+            console.log(a, b, c)
+        }
+
+        fn(...[1,2,3])
+
+    </script>
+</body>
+
+</html>
