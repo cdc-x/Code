@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .size-20 {
+            font-size: 20px;
+        }
+
+        .color-red {
+            color: red;
+        }
+
+        .style-italic {
+            font-style: italic;
+        }
+
+        .box{
+            height: 200px;
+            width: 200px;
+        }
+
+        .box-color{
+            background: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <a :href="info.url" :title="info.title">{{ info.name }}</a>
+        <!-- 绑定自定义属性 -->
+        <a href="" :aaa="info.name"></a>
+
+        <!-- 直接绑定值 -->
+        <p :title="'这是一个p标签'"></p>
+        <!-- 绑定变量 -->
+        <p :c1ass="c1assName" :title="tit1e">危险勿触</p>
+        <!-- 绑定表达式 -->
+        <button :disab1ed="10 + 10 === 20"> 点击有奖</button>
+
+        <!-- 绑定类名 -->
+        <p :class="classStr">通过字符串绑定类</p>
+        <p :class="classArr">通过数组绑定类</p>
+        <!-- 可以直接绑定数组 -->
+        <!-- <p :class="['size-20', 'color-red', 'style-italic']">通过数组绑定类</p> -->
+        <p :class="classObj1">通过对象绑定类</p>
+        <!-- 可以直接绑定对象 -->
+        <!-- <p :class="{'size-20': isSize,'color-red': true,'style-italic': true}">通过对象绑定类</p> -->
+        <p :class="classObj2">通过对象未绑定类</p>
+
+
+        <!-- 绑定样式 -->
+        <p :style="styleStr">通过字符串绑定样式</p>
+        <p :style="styleObj">通过对象形式绑定样式</p>
+
+        <!-- 已有类名和样式上新增 -->
+        <div class="box" style="color: white;" :class="{'box-color':addClass}" :style="{'font-size':'20px'}">vegetable dog</div>
+
+    </div>
+
+    <script type="text/javascript" src="../vue.js"></script>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: "#app",
+            data: {
+                info: {
+                    "name": "百度",
+                    "url": "https://www.baidu.com",
+                    "title": "百度一下"
+                },
+                classStr: "size-20 color-red style-italic",
+                classArr: ["size-20", "color-red", "style-italic"],
+                classObj1: {
+                    "size-20": true,
+                    "color-red": true,
+                    "style-italic": true
+                },
+                classObj2: {
+                    "size-20": false,
+                    "color-red": 0,
+                    "style-italic": ""
+                },
+                isSize: true,
+                styleStr: "color:red; font-size:20px; font-style: italic;",
+                styleObj: {
+                    "color": "red",
+                    "font-size": "20px",
+                    "font-style": "italic"
+                },
+                addClass: true,
+            }
+        })
+    </script>
+</body>
+
+</html>

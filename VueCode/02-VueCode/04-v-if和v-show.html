@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 表达式或数据属性为true的时候才显示 -->
+        <p v-if="5 > 2">呵呵呵</p> 
+        <p v-if="5 < 2"> 嘿嘿嘿</p>
+        <p v-if="isShow">哈哈哈</p>
+        
+        <!-- v-if和v-else -->
+        <p v-if="randomNum">大大大</p>
+        <p v-else>小小小</p>
+
+        <!-- v-if和v-else-if和v-else -->
+        <p v-if="type === 'A'">A</p>
+        <p v-else-if="type === 'B'">B</p>
+        <p v-else-if="type === 'C'">C</p>
+        <p v-else>Not A/B/C</p>
+
+        <!-- v-show  -->
+        <p v-show="isShow">显示</p>
+
+        <!-- v-if 和 v-show 的区别 -->
+        <p v-if="isShow">aaaaa</p>
+        <p v-show="isShow">aaaaa</p>
+
+    </div>
+
+    <script type="text/javascript" src="../vue.js"></script>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: "#app",
+            data: {
+                isShow: false,
+                randomNum: Math.random() > 0.5,
+                type: "D"
+            }
+        })
+        // console.log(app.randomNum)
+    </script>
+</body>
+</html>

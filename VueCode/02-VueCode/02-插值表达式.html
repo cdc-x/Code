@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <!-- {{content}}  渲染数据属性中的变量 -->
+        <p>变量：{{content}}</p>
+        <p>对象：{{ {"name":"cdc", "age":18} }}</p>
+        <p>表达式：{{10+5}}</p>
+        <p>三目运算符：{{1>2 ? "真的" : "假的"}}</p>
+        <p>函数对象：{{ getNum }}</p>
+        <p>函数执行：{{ getNum() }}</p>
+        <p>匿名函数：{{ (() => 1+5)() }}</p>
+        <p>html代码：{{ '<span>哈哈哈</span>' }}</p>
+    </div>
+
+    <script type="text/javascript" src="../vue.js"></script>
+    <script type="text/javascript">
+
+        let app = new Vue({
+            el: "#app",
+            data:{
+                content:"这是一个不愿透露姓名的帅小伙！！！"
+            },
+            methods:{
+                getNum(){
+                    return 10
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

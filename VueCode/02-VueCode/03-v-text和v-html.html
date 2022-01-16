@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 直接插入值渲染 -->
+        <p v-text="'嘿嘿嘿嘿'"></p>
+        <!-- 通过数据属性中的数据渲染 -->
+        <p v-text="content"></p>
+        <!-- {{}} 和 v-text 无法渲染 html 代码 -->
+        <p>{{htmlContent}}</p>
+        <p v-text='htmlContent'></p>
+        <!-- v-html 既可以渲染值 也可以渲染html标签 -->
+        <p v-html='content'></p>
+        <p v-html='htmlContent'></p>
+        
+    </div>
+
+    <script type="text/javascript" src="../vue.js"></script>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: "#app",
+            data: {
+                content: "哈哈哈哈哈",
+                htmlContent: "<span>hello world</span>"
+            }
+        })
+
+    </script>
+</body>
+
+</html>
