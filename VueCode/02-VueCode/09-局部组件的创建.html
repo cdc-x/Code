@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用组件 -->
+        <App></App>
+    </div>
+
+    <script type="text/javascript" src="../vue.js"></script>
+    <script type="text/javascript">
+
+        // 创建组件
+        // 方式一、直接创建
+        // let app = new Vue({
+        //     el: "#app",
+
+        //     // 创建一个名字叫 App 的组件
+        //     // 直接在实例中的 components 中创建并挂载组件
+        //     components: {
+        //         App: {
+        //             data(){
+        //                 return {
+        //                     msg: "我是组件"
+        //                 }
+        //             },
+
+        //             template: `
+        //                 <div>{{ msg }}</div>
+        //             `
+        //         }
+        //     }
+
+        // })
+
+        // 方式二、拆分
+
+        const App2 = {
+            data(){
+                return {
+                    msg: "我是组件2"
+                }
+            },
+
+            template: `
+                <div>
+                    {{ msg }} 
+                </div>
+            `
+        }
+
+        // 第一步，创建组件
+        const App = {
+            data(){
+                return {
+                    msg: "我是组件"
+                }
+            },
+             // 在组件App中挂载组件App2
+            components: {
+                App2
+            },
+
+            template: `
+                <div>
+                    {{ msg }}    
+                    <App2></App2>   
+                </div>
+            `
+        }
+
+        let app = new Vue({
+            el: "#app",
+            // 第二步，挂载组件
+            components: {
+                App
+                // 等价于 App: App
+                // 键为自定义组件名，值为创建的组件对象，当键和值相同时，可以简写成 App
+            }
+        })
+
+    </script>
+</body>
+</html>
