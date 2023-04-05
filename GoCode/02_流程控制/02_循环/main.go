@@ -36,9 +36,22 @@ func forDemo4() {
 	}
 }
 
+func forDemo5() {
+	s := "hello南京"
+
+	for i := 0; i < len(s); i++ { //byte
+		fmt.Printf("%v(%c) ", s[i], s[i])
+	}
+
+	for _, r := range s {
+		fmt.Printf("%v(%c) ", r, r) // 104(h) 101(e) 108(l) 108(l) 111(o) 21335(南) 20140(京)
+	}
+}
+
 func main() {
 	forDemo1()
 	forDemo2()
 	forDemo3()
 	forDemo4()
+	forDemo5()
 }
